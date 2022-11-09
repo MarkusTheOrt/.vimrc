@@ -6,7 +6,7 @@ local indent = 4
 g.mapleader = ' '
 
 -- standard commands
-cmd('colorscheme carbonfox')
+cmd('colorscheme nordfox')
 cmd('set number')
 cmd('set relativenumber')
 cmd('map! <S-Insert> <C-R>+')

@@ -1,6 +1,42 @@
+local lsp_status = require('lsp-status')
+local lspconfig = require('lspconfig')
+lsp_status.register_progress()
+lsp_status.config({
+  kind_labels = kind_labels,
+  indicator_errors = "×",
+  indicator_warnings = "!",
+  indicator_info = "i",
+  indicator_hint = "›",
+  -- the default is a wide codepoint which breaks absolute and relative
+  -- line counts if placed before airline's Z section
+  status_symbol = "",
+})
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  vim.cmd([[
+    if !g:lsp_wait_added
+      call airline#add_statusline_func('LspWait')
+      call airline#add_inactive_statusline_func('LspWait')
+      call airline#update_statusline()
+      let g:lsp_wait_added = 1
+    endif
+  ]])
+  lsp_status.on_attach(client, bufnr)
+  local handler = vim.lsp.handlers['textDocument/publishDiagnostics']
+  vim.lsp.handlers['textDocument/publishDiagnostics'] = function (...)
+    vim.cmd([[
+      if !g:lsp_wait_done
+        call airline#remove_statusline_func('LspWait')
+        call airline#update_statusline()
+        let g:lsp_wait_done = 1
+      endif
+    ]])
+    if handler ~= nil then
+      handler(...)
+    end
+  end
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -30,6 +66,7 @@ local lsp_flags = {
 require('lspconfig').rust_analyzer.setup({
   on_attach = on_attach,
   flags = lsp_flags,
+  capabilities = vim.tbl_extend("keep", {}, lsp_status.capabilities),
     -- Server-specific settings...
     settings = {
       ["rust-analyzer"] = {
@@ -66,7 +103,7 @@ vim.diagnostic.config({
     format = format,
   },
   virtual_text = {
-    prefix = '•',
+    prefix = '',
     spacing = 2,
     source = false,
     severity = {

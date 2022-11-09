@@ -5,9 +5,11 @@ require('plugins.mason')
 require('plugins.treesitter')
 require('plugins.lspconfig')
 require('plugins.nvim-cmp')
+require('plugins.airline')
 
 require('gitsigns').setup()
 
 require('null-ls').setup({})
 require('rust-tools').setup()
 require('rust-tools').inlay_hints.enable()
+
