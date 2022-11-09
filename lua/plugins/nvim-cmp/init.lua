@@ -20,10 +20,10 @@ local default_cmp_opts = {
   end,
   snippet = {
     expand = function(args)
-      -- luasnip.lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
-  mapping = cmp.mapping.preset.insert({
+  mapping = {
     ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
@@ -32,10 +32,7 @@ local default_cmp_opts = {
       c = cmp.mapping.close(),
     }),
     -- disabled for autopairs mapping
-    ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    }),
+    ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -62,7 +59,7 @@ local default_cmp_opts = {
       'i',
       's',
     }),
-  }),
+  },
   window = {
     completion = {
       
@@ -76,11 +73,17 @@ local default_cmp_opts = {
   experimental = {
     ghost_text = true,
   },
+  event = {
+    on_confirm_done = function(entry)
+
+    end
+  },
   sources = cmp.config.sources({
+    { name = 'buffer' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
     { name = 'luasnip' },
-    { name = 'buffer' },
+    
     { name = 'path' },
     { name = 'crates' }
   }),
@@ -94,11 +97,27 @@ local default_cmp_opts = {
         buffer = '[buf]',
         path = '[path]',
         nvim_lua = '[nvim_api]',
+        crates = '[crates]'
       })[entry.source.name]
       return vim_item
     end,
   },
+  completion = {completeopt = 'menu,menuone,noinsert'}
 }
+require("nvim-autopairs").setup({
+  map_cr = true,
+  map_complete = true,
+  auto_select = true
+})
+local remap = vim.api.nvim_set_keymap
+
+
+_G.MUtils = _G.MUtils or {}
+      MUtils.completion_confirm = function()
+        return npairs.autopairs_cr()
+      end
+
+remap('i' , '<CR>','v:lua.MUtils.completion_confirm()', {expr = true , noremap = true})
 
 cmp.setup(default_cmp_opts)
 local null_ls = require('null-ls')
@@ -108,3 +127,8 @@ require('crates').setup {
         name = "crates.nvim",
     },
 }
+
+require("nvim-autopairs").setup({
+  map_cr = true,
+  map_complete = true,
+})

@@ -13,7 +13,8 @@ return require("packer").startup(function(use)
     "vim-airline/vim-airline-themes",
     "nvim-lua/lsp-status.nvim",
     "tpope/vim-fugitive",
-    "andweeb/presence.nvim"
+    "andweeb/presence.nvim",
+    "windwp/nvim-autopairs"
   }
   use {
     "nvim-treesitter/nvim-treesitter",
@@ -34,6 +35,7 @@ return require("packer").startup(function(use)
       "hrsh7th/cmp-vsnip",
     }
   }
+  use("hrsh7th/cmp-nvim-lsp")
   use("simrat39/rust-tools.nvim")
   use {
     "saecki/crates.nvim",
