@@ -13,3 +13,7 @@ require('null-ls').setup({})
 require('rust-tools').setup()
 require('rust-tools').inlay_hints.enable()
 
+require("presence"):setup({
+  main_image = "file",
+
+})

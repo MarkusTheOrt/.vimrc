@@ -13,6 +13,7 @@ return require("packer").startup(function(use)
     "vim-airline/vim-airline-themes",
     "nvim-lua/lsp-status.nvim",
     "tpope/vim-fugitive",
+    "andweeb/presence.nvim"
   }
   use {
     "nvim-treesitter/nvim-treesitter",
