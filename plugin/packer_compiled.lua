@@ -178,11 +178,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["presence.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\presence.nvim",
-    url = "https://github.com/andweeb/presence.nvim"
-  },
   ["rust-tools.nvim"] = {
     loaded = true,
     path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\rust-tools.nvim",
@@ -214,9 +209,9 @@ time([[Defining packer_plugins]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-cmp ]]
-vim.cmd [[ packadd cmp-buffer ]]
-vim.cmd [[ packadd cmp-nvim-lua ]]
 vim.cmd [[ packadd cmp-path ]]
+vim.cmd [[ packadd cmp-nvim-lua ]]
+vim.cmd [[ packadd cmp-buffer ]]
 time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false

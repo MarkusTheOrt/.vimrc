@@ -79,11 +79,10 @@ local default_cmp_opts = {
     end
   },
   sources = cmp.config.sources({
-    { name = 'buffer' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
     { name = 'luasnip' },
-    
+    { name = 'buffer' },
     { name = 'path' },
     { name = 'crates' }
   }),
