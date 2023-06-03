@@ -9,11 +9,14 @@ return require("packer").startup(function(use)
     "nvim-lua/plenary.nvim",
     "lewis6991/gitsigns.nvim",
     "jose-elias-alvarez/null-ls.nvim",
-    "vim-airline/vim-airline",
-    "vim-airline/vim-airline-themes",
+    "nvim-lualine/lualine.nvim",
+    "arkav/lualine-lsp-progress",
+    --"vim-airline/vim-airline",
+    --"vim-airline/vim-airline-themes",
     "nvim-lua/lsp-status.nvim",
     "tpope/vim-fugitive",
-    "windwp/nvim-autopairs"
+    "windwp/nvim-autopairs",
+    "tiagovla/tokyodark.nvim",
   }
   use {
     "nvim-treesitter/nvim-treesitter",

@@ -1,6 +1,9 @@
+vim.filetype.add({extension = {wgsl = "wgsl"}})
+
+
 require('nvim-treesitter.configs').setup({
   -- A list of parser names, or "all"
-  ensure_installed = { "c", "lua", "rust", "typescript" },
+  ensure_installed = { "c", "lua", "rust", "typescript", "wgsl" },
   indent = {
     enable = true
   },

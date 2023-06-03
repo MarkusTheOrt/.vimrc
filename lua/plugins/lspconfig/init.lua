@@ -101,8 +101,17 @@ lspconfig.rust_analyzer.setup({
     settings = {
       ["rust-analyzer"] = {
         checkOnSave = {
-          command = "clippy",
+          command = "cargo fmt",
         }
       }
     }
 })
+
+lspconfig.clangd.setup({})
+lspconfig.tsserver.setup({})
+lspconfig.dockerls.setup({})
+lspconfig.lua_ls.setup({})
+lspconfig.marksman.setup({})
+lspconfig.tailwindcss.setup({})
+lspconfig.cssls.setup({})
+lspconfig.wgsl_analyzer.setup({})

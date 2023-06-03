@@ -168,6 +168,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-treesitter-context"] = {
+    loaded = true,
+    path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter-context",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\packer.nvim",
@@ -187,6 +192,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["tokyodark.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tokyodark.nvim",
+    url = "https://github.com/tiagovla/tokyodark.nvim"
   },
   ["vim-airline"] = {
     loaded = true,
@@ -209,8 +219,8 @@ time([[Defining packer_plugins]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-cmp ]]
-vim.cmd [[ packadd cmp-path ]]
 vim.cmd [[ packadd cmp-nvim-lua ]]
+vim.cmd [[ packadd cmp-path ]]
 vim.cmd [[ packadd cmp-buffer ]]
 time([[Sequenced loading]], false)
 
