@@ -4,7 +4,7 @@ local g = vim.g
 local indent = 4
 cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
-cmd('set guifont=MonoLisa:h16')
+cmd('set guifont=Comic_Code:h16')
 
 g.mapleader = ' '
 

@@ -128,6 +128,16 @@ _G.packer_plugins = {
     path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-status.nvim",
     url = "https://github.com/nvim-lua/lsp-status.nvim"
   },
+  ["lualine-lsp-progress"] = {
+    loaded = true,
+    path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine-lsp-progress",
+    url = "https://github.com/arkav/lualine-lsp-progress"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\mason-lspconfig.nvim",
@@ -198,16 +208,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tokyodark.nvim",
     url = "https://github.com/tiagovla/tokyodark.nvim"
   },
-  ["vim-airline"] = {
-    loaded = true,
-    path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-airline",
-    url = "https://github.com/vim-airline/vim-airline"
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-airline-themes",
-    url = "https://github.com/vim-airline/vim-airline-themes"
-  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "C:\\Users\\marku\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-fugitive",
@@ -219,8 +219,8 @@ time([[Defining packer_plugins]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-cmp ]]
-vim.cmd [[ packadd cmp-nvim-lua ]]
 vim.cmd [[ packadd cmp-path ]]
+vim.cmd [[ packadd cmp-nvim-lua ]]
 vim.cmd [[ packadd cmp-buffer ]]
 time([[Sequenced loading]], false)
 
